@@ -132,5 +132,6 @@ if __name__ == "__main__":
     try:
         dnnnet = cv2.dnn.readNet(output_onnx)
         print('read sucess')
-    except:
-        print('read failed')
+    except cv2.error as err:
+        print('Your Opencv version : {} may be incompatible, please consider upgrading'.format(cv2.__version__))
+        print('Read failed : ', err)
